@@ -9,7 +9,10 @@
         "no-console":false,
         "interface-name":true,
         "ordered-imports":false,
-        "arrow-parens":false
+        "arrow-parens":false,
+        "trailing-comma":false,
+        "member-ordering":false,
+        "one-line":false
     },
     "rulesDirectory": []
 }

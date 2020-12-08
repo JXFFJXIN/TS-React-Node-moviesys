@@ -1,8 +1,9 @@
 import "reflect-metadata";
 import { Type } from "class-transformer";
-import { ArrayMinSize, IsArray, IsInt, IsNotEmpty, Max, Min } from "class-validator";
+import { ArrayMinSize, IsArray, IsInt, IsNotEmpty, Max, Min, validate } from "class-validator";
+import { BaseEntity } from "./BaseEntity";
 
-export class Movie {
+export class Movie extends BaseEntity{
     // 电影名称
     @IsNotEmpty({message:"电影名称不可以为空"})
     @Type(()=>String)
@@ -44,4 +45,9 @@ export class Movie {
     // 电影海报
     @Type(()=>String)
     public poster?:string;
+
+    // 由于父类有baseTransfrom所以可以使用super进行调用
+    public static transform(plainObject:object):Movie{
+        return super.baseTransform(Movie,plainObject);
+    }
 }
