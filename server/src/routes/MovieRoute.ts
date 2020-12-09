@@ -50,8 +50,13 @@ router.put("/:id",async (req,res)=>{
         ResponseHelper.sendError("params错误",res);
     }
 });
-router.delete("/",(req,res)=>{
-    res.send("delete 请求")
+router.delete("/:id",async (req,res)=>{
+    try{
+        await MovieService.delete(req.params.id)
+        ResponseHelper.sendData("true",res);
+    }catch{
+        ResponseHelper.sendError("params错误",res)
+    }
 });
 
 export default router;
