@@ -3,10 +3,15 @@ import "reflect-metadata";
 import Express from "express";
 import MovieRouter from "./routes/MovieRoute";
 import UploadRoute from "./routes/UploadRoute";
+import history from "connect-history-api-fallback"
 
 const app = Express();
 
+// 利用connect-history-api-fallback库将地址锚定在index.html上
+app.use(history());
+
 // 加载静态资源
+app.use("/",Express.static("public/build"));
 app.use("/upload",Express.static("public/upload"));
 
 app.use(Express.json());// 该中间件用于解析请求消息体中的json格式数据

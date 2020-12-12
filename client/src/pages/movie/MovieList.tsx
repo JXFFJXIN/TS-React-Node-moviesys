@@ -4,7 +4,6 @@ import { connect } from "react-redux";
 import { IRootState } from "../../redux/reducers/RootReducer";
 import MovieAction from "../../redux/actions/MovieAction";
 import { IMovieState } from "../../redux/reducers/MovieReducer";
-import { SwitchType } from "../../services/CommonTypes";
 
 /**
  * react-redux的使用 
@@ -26,6 +25,25 @@ function mapDispatchToProps(dispatch:Dispatch<any>):IMovieTableEvents{
         },
         onSwitchChange(type, newState, id){
             dispatch(MovieAction.changeSwitch(type,newState,id))
+        },
+        async onDelete(id){
+            dispatch(MovieAction.deleteMovie(id))
+        },
+        onChange(page){
+            dispatch(MovieAction.fetchMovie({
+                page,
+            }))
+        },
+        onKeyChange(key){
+            dispatch(MovieAction.setConditionAction({
+                key,
+            }))
+        },
+        onSearch(){
+            dispatch(MovieAction.fetchMovie({
+                // 细节搜索后需要会到第一页 否则容易出bug
+                page:1,
+            }))
         }
     }
 }
