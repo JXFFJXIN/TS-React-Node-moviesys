@@ -1,4 +1,3 @@
-// 添加上传图片的路由
 import "reflect-metadata";
 import Express from "express";
 import MovieRouter from "./routes/MovieRoute";
