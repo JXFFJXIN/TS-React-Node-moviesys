@@ -166,5 +166,4 @@ export default {
     deleteMovie,
     changeSwitch,
     changeSwitchAction,
-
 };

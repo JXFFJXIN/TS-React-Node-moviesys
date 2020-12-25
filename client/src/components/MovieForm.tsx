@@ -1,6 +1,5 @@
 import { Button, Checkbox, Form, Input, InputNumber, message, Switch } from "antd";
-import TextArea from "antd/lib/input/TextArea";
-import React, { useState } from "react";
+import React from "react";
 import { RouteComponentProps, withRouter } from "react-router";
 import { IMovie } from "../services/MovieService";
 import ImgUploader from "./imgUploader";
@@ -28,13 +27,12 @@ class MovieForm extends React.Component<IFormProp> {
 
     render() {
         const onFinish = async (value: IMovie) => {
-            console.log(value);
             if (value) {
                 const result = await this.props.onSubmit(value);
                 if (result) {
                     message.error(result);
                 } else {
-                    message.success("提交成功", 2, () => {
+                    message.success("提交成功", 1, () => {
                         // 1000ms后跳转页面
                         this.props.history.push("/movie")
                     })

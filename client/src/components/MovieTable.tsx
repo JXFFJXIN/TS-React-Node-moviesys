@@ -148,11 +148,13 @@ class table extends React.Component<IMovieTableEvents & IMovieState> {
                             <NavLink to={`/movie/edit/${id}`}>
                                 <Button type="primary" size="small">编辑</Button>
                             </NavLink>
-                            <Popconfirm title="是否确定删除该影片？" onConfirm={
-                                async ()=>{
-                                    await this.props.onDelete(id)
-                                    message.success("删除成功")
-                                }} okText="确定" cancelText="取消">
+                            <Popconfirm 
+                            title="是否确定删除该影片？" 
+                            onConfirm={
+                            async ()=>{
+                                await this.props.onDelete(id)
+                                message.success("删除成功")
+                            }} okText="确定" cancelText="取消">
                             <Button type="text" size="small">删除</Button>
                             </Popconfirm>
                         </div>

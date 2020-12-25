@@ -2,6 +2,8 @@ import "reflect-metadata";
 import Express from "express";
 import MovieRouter from "./routes/MovieRoute";
 import UploadRoute from "./routes/UploadRoute";
+import UserRoute from "./routes/UserRoute";
+import BookRoute from "./routes/BookRoute";
 import history from "connect-history-api-fallback"
 
 const app = Express();
@@ -14,6 +16,9 @@ app.use("/",Express.static("public/build"));
 app.use("/upload",Express.static("public/upload"));
 
 app.use(Express.json());// 该中间件用于解析请求消息体中的json格式数据
+app.use(Express.urlencoded({
+    extended:true,
+}))
 // 文件上传
 // - 1.通常情况下，服务器会提供一个统一的api接口，用于处理上传的文件
 // /api/upload
@@ -28,6 +33,8 @@ app.use(Express.json());// 该中间件用于解析请求消息体中的json格�
 // - 3. 如何限制文件的后缀名（通过fileFilter配置文件的过滤）
 // - 4. 如何在发生错误的时候响应给客户端，正确时又如何响应
 // - 5. 如何将静态资源进行加载
+app.use("/api/book",BookRoute);
+app.use("/api/user",UserRoute);
 app.use("/api/upload",UploadRoute);// 服务器文件上传路由
 app.use("/api/movie",MovieRouter);// 服务器基本路由
 app.listen(3000);
