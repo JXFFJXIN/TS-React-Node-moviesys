@@ -11,13 +11,13 @@ interface EditPageState {
     book?:IBook
 }
 
-class edit extends React.Component<RouteComponentProps<IParams>,EditPageState>{
+class edit extends React.Component<any,EditPageState>{
     state:EditPageState={
         book:undefined
     }
 
     async componentDidMount(){
-        const result = await BookService.getById(this.props.match.params.id);
+        const result = await BookService.getById(this.props.computedMatch.params.id);
         if(result.data){
             this.setState({
                 book:result.data

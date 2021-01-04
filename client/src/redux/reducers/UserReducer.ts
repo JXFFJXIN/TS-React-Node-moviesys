@@ -20,7 +20,7 @@ const defaultState = {
         loginPwd:""
     },
     isLoading:false,
-    isLogin:false
+    isLogin:false,
 }
 
 type UserReducer<T> = Reducer<IUserState,T>

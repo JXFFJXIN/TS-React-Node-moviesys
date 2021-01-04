@@ -50,14 +50,14 @@ const _Layout: React.FC = function () {
                     <Content>
                         <div className="main">
                             <Switch>
-                                <Route path="/" component={Home} exact={true}></Route>
+                                <Route path="/login" component={UserLogin}></Route>
                                 <ProtectedRoute path="/movie" component={MovieList} exact={true}></ProtectedRoute>
                                 <ProtectedRoute path="/movie/add" component={AddMovie}></ProtectedRoute>
                                 <ProtectedRoute path="/movie/edit/:id" component={EditMovie}></ProtectedRoute>
                                 <ProtectedRoute path="/book" component={BookList} exact={true}></ProtectedRoute>
                                 <ProtectedRoute path="/book/add" component={AddBook}></ProtectedRoute>
                                 <ProtectedRoute path="/book/edit/:id" component={EditBook}></ProtectedRoute>
-                                <Route path="/login" component={UserLogin}></Route>
+                                <Route path="/" component={Home} exact={true}></Route>
                             </Switch>
                         </div>
                     </Content>

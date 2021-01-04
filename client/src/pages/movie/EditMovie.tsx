@@ -15,13 +15,14 @@ interface EditPageState {
  * 获取地址栏中的params
  * @ 使用RouteComponentPropse<>泛型
  */
-class edit extends React.Component<RouteComponentProps<IParams>,EditPageState>{
+class edit extends React.Component<any,EditPageState>{
     state:EditPageState = {
         movie:undefined
     }
 
     async componentDidMount(){
-        const result = await MovieService.getById(this.props.match.params.id)
+        console.log(this.props);
+        const result = await MovieService.getById(this.props.computedMatch.params.id)
         if(result.data){
             this.setState({
                 movie:result.data

@@ -35,7 +35,11 @@ class UserForm extends React.Component<IUserProp,any>{
                 const res = await this.props.onSubmit(value);
                 if(!res){
                     message.success("提交成功",1,()=>{
-                        this.props.history.push("/")
+                        if(this.props.location.state){
+                            this.props.history.push(this.props.location.state as any)
+                        }else{
+                            this.props.history.push("/")
+                        }
                     })
                 }else{
                     message.error(res);

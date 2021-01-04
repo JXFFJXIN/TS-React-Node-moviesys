@@ -73,12 +73,13 @@ function registerAction(user:IUser):ThunkAction<Promise<void>,IRootState,any,Use
         if(resp.data){
             dispatch(saveUserAction(resp.data));
         }
-        dispatch(setLoadingAction(true));
+        dispatch(setLoadingAction(false));
     }
 }
 
 function loginAction(loginId:string,loginPwd:string):ThunkAction<Promise<void>,IRootState,any,UserAction>{
     return async (dispatch,getState)=>{
+        console.log("111")
         dispatch(setLoadingAction(true));
         const resp = await UserService.login(loginId,loginPwd);
         if(resp.data){
