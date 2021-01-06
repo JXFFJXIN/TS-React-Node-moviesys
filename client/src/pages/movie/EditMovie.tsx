@@ -36,7 +36,8 @@ class edit extends React.Component<any,EditPageState>{
             <MovieForm 
             movie={this.state.movie}
             onSubmit={async (movie)=>{
-                const req = await MovieService.edit(this.props.match.params.id,movie)
+                console.log(this.props)
+                const req = await MovieService.edit(this.props.computedMatch.params.id,movie)
                 if(req.err){
                     return req.err
                 }

@@ -57,7 +57,7 @@ const _Layout: React.FC = function () {
                                 <ProtectedRoute path="/book" component={BookList} exact={true}></ProtectedRoute>
                                 <ProtectedRoute path="/book/add" component={AddBook}></ProtectedRoute>
                                 <ProtectedRoute path="/book/edit/:id" component={EditBook}></ProtectedRoute>
-                                <Route path="/" component={Home} exact={true}></Route>
+                                <Route component={Home} exact={true}></Route>
                             </Switch>
                         </div>
                     </Content>
