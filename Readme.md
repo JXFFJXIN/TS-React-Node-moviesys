@@ -12,3 +12,6 @@ cd client
 npm start
 # 访问页面
 localhost:3000
+# 默认用户
+用户名：admin
+密码：admin
